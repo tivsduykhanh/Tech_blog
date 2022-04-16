@@ -34,7 +34,7 @@
         </div>
     </section>
 
-    <section class="section" th:fragment = "fs">
+    <section class="section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
@@ -57,7 +57,7 @@
                                     </div><!-- end col -->
 
                                     <div class="blog-meta big-meta col-md-8">
-                                        <h4><a href="tech-single.html" title="">T[[${post.title}]]</a></h4>
+                                        <h4><a href="tech-single.html" title="">[[${post.title}]]</a></h4>
                                         <p>[[${post.content}]]</p>
 <!--                                        <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small>-->
                                         <small><a href="tech-single.html" title="">[[${post.created_at}]]</a></small>
@@ -68,6 +68,7 @@
                                 <hr class="invis">
                             </th:block>
 
+                            <div class="comment-wrapper">
 <!--                            <div class="blog-box row">-->
 <!--                                <div class="col-md-4">-->
 <!--                                    <div class="post-media">-->
@@ -275,11 +276,14 @@
 <!--                                    <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 3331</a></small>-->
 <!--                                </div>&lt;!&ndash; end meta &ndash;&gt;-->
 <!--                            </div>&lt;!&ndash; end blog-box &ndash;&gt;-->
+                            </div>
+
                         </div><!-- end blog-list -->
                     </div><!-- end page-wrapper -->
 
                     <hr class="invis">
 
+                    <!-- Page number -->
                     <div class="row">
                         <div class="col-md-12">
                             <nav aria-label="Page navigation">
@@ -294,9 +298,13 @@
                             </nav>
                         </div><!-- end col -->
                     </div><!-- end row -->
+                    <!-- End of Page number -->
+
                 </div><!-- end col -->
 
-                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" th:insert="fragments/sidebar :: sidebar"></div><!-- end col -->
+                <!-- Side bar -->
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" th:insert="fragments/sidebar :: sidebar"></div>
+                <!-- End of Side bar -->
             </div><!-- end row -->
         </div><!-- end container -->
     </section>
