@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Post</title>
+    <div th:replace="fragments/head_admin_fragment :: head_admin"></div>
+</head>
+<body>
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <div th:replace="fragments/header_admin_fragment :: header_admin"></div>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial -->
+        <!-- partial:partials/_sidebar.html -->
+
+        <div th:replace="fragments/navi_admin_fragment :: navi_admin"></div>
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Basic form elements</h4>
+                    <p class="card-description">
+                        Basic form elements
+                    </p>
+                    <form class="forms-sample" th:action="@{/admin/post/save}", method="post" th:object="${post}">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input th:field="*{title}" type="text" class="form-control" placeholder="Enter Title">
+                        </div>
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea th:field="*{content}" class="form-control" placeholder="Enter content"
+                                      rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input th:field="*{image}" type="text" class="form-control" placeholder="Image">
+                        </div>
+                        <div class="form-group">
+                            <label>user_id</label>
+                            <input th:field="*{user_id}" type="number" class="form-control"
+                                   placeholder="Enter user_id">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button class="btn btn-light" onclick="cancelForm()">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function cancelForm() {
+        window.location = "[[@{/admin}]]";
+    }
+</script>
+</body>
+</html>

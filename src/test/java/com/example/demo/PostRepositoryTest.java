@@ -20,8 +20,8 @@ public class PostRepositoryTest {
     @Test
     public void testAddNew() {
         Post post = new Post();
-        post.setTitle("Ghê vậy sao");
-        post.setContent("alo alo");
+        post.setTitle("Đại học công nghệ hutech");
+        post.setContent("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         post.setImage("shiba shiba");
         post.setUser_id(1);
 

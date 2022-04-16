@@ -14,4 +14,8 @@ public class PostService {
     public List<Post> listAll() {
         return (List<Post>) repo.findAll();
     }
+
+    public void save(Post post) {
+        repo.save(post);
+    }
 }

@@ -16,7 +16,6 @@ public class MainController {
 
     @GetMapping("")
     public String showPostList(Model model) {
-        String title = "Home";
         List<Post> listPosts = service.listAll();
         model.addAttribute("listPosts", listPosts);
 
