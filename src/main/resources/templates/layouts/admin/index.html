@@ -23,6 +23,9 @@
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">POST MANAGER</h4>
+                <div th:if="${message}" class="card-title text-success">
+                  [[${message}]]
+                </div>
                 <a th:href="@{/admin/post/add}"><button type="button" class="btn btn-success">Success</button></a>
                 <div class="table-responsive pt-3">
                   <table class="table table-bordered">

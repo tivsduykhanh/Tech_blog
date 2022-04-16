@@ -18,4 +18,8 @@ public class PostService {
     public void save(Post post) {
         repo.save(post);
     }
+
+//    public Post get(Integer id){
+//        repo.findById(id);
+//    }
 }
