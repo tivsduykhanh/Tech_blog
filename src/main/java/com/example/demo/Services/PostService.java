@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -19,7 +20,19 @@ public class PostService {
         repo.save(post);
     }
 
-//    public Post get(Integer id){
-//        repo.findById(id);
-//    }
+    public Post get(Integer id) throws PostNotFoundException {
+        Optional<Post> result = repo.findById(id);
+        if (result.isPresent()) {
+            return result.get();
+        }
+        throw new PostNotFoundException("Could not find any users with ID " + id);
+    }
+
+    public void delete(Integer id) throws PostNotFoundException {
+        Long count = repo.countById(id);
+        if (count == null || count ==0) {
+            throw new PostNotFoundException("Could not find any users with ID " + id);
+        }
+        repo.deleteById(id);
+    }
 }

@@ -26,7 +26,7 @@
                 <div th:if="${message}" class="card-title text-success">
                   [[${message}]]
                 </div>
-                <a th:href="@{/admin/post/add}"><button type="button" class="btn btn-success">Success</button></a>
+                <a th:href="@{/admin/post/add}" type="button" class="btn btn-success">New Post</a>
                 <div class="table-responsive pt-3">
                   <table class="table table-bordered">
                     <thead>
@@ -77,9 +77,9 @@
                           </td>
                           <td>
 <!--                            <div class="template-demo">-->
-                              <button type="button" class="btn btn-info" style="margin-right: 10px">Info</button>
-                              <button type="button" class="btn btn-warning" style="margin-right: 10px">Warning</button>
-                              <button type="button" class="btn btn-danger" style="margin-right: 10px">Danger</button>
+                              <a type="button" class="btn btn-info" style="margin-right: 10px">Detail</a>
+                              <a th:href="@{'/admin/post/edit/' + ${post.id}}" type="button" class="btn btn-warning" style="margin-right: 10px">Edit</a>
+                              <a th:href="@{'/admin/post/delete/' + ${post.id}}" type="button" class="btn btn-danger" style="margin-right: 10px">Delete</a>
 <!--                            </div>-->
                           </td>
                         </tr>
