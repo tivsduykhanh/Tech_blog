@@ -16,8 +16,9 @@ public class PostService {
         return (List<Post>) repo.findAll();
     }
 
-    public void save(Post post) {
+    public Post save(Post post) {
         repo.save(post);
+        return post;
     }
 
     public Post get(Integer id) throws PostNotFoundException {
