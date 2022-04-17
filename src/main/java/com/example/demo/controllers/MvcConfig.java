@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.file.Path;
@@ -17,4 +18,5 @@ public class MvcConfig implements WebMvcConfigurer {
 
         registry.addResourceHandler("/image-posts/**").addResourceLocations("file:/" + postUploadPath + "/");
     }
+
 }
