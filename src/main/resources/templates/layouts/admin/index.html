@@ -67,7 +67,8 @@
                             [[${post.content}]]
                           </td>
                           <td>
-                            [[${post.image}]]
+<!--                            [[${post.image}]]-->
+                            <img th:src="@{${post.getImagePath}}" />
                           </td>
                           <td>
                             [[${post.created_at}]]

@@ -18,7 +18,7 @@ public class Post {
     @Column(nullable = false)
     private String content;
 
-    @Column
+    @Column(nullable = true)
     private String image;
 
     @Column(nullable = false, updatable = false)
@@ -58,6 +58,13 @@ public class Post {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Transient
+    public String getImagePath() {
+        if (image == null || id == null) return null;
+
+        return "/image-posts/" + id + "/" + image;
     }
 
     public Integer getUser_id() {
