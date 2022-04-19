@@ -106,4 +106,9 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+
+    @GetMapping("/admin/login")
+    public String login() {
+        return "layouts/admin/login";
+    }
 }
