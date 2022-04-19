@@ -21,34 +21,15 @@
                     <p class="card-description">
                         Basic form elements
                     </p>
-                    <form class="forms-sample" th:action="@{/admin/post/save}" method="post" th:object="${post}" enctype="multipart/form-data">
+                    <form class="forms-sample" th:action="@{/admin/category/save}" method="post" th:object="${category}" >
                         <input type="hidden" th:field="*{id}">
                         <div class="form-group">
                             <label>Title</label>
                             <input th:field="*{title}" type="text" class="form-control" placeholder="Enter Title">
                         </div>
-                        <div class="form-group">
-                            <label>Content</label>
-                            <textarea th:field="*{content}" class="form-control" placeholder="Enter content"
-                                      rows="4"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Image</label>
-<!--                            <input th:field="*{image}" type="text" class="form-control" placeholder="Enter image">-->
-                            <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" class="form-control">
-                            <img id="thumbnail" alt="Logo Preview" />
-                        </div>
-<!--                        <div class="form-group">-->
-<!--                            <img id="thumbnail" alt="Logo Preview" />-->
-<!--                        </div>-->
-                        <div class="form-group">
-                            <label>user_id</label>
-                            <input th:field="*{user_id}" type="number" class="form-control"
-                                   placeholder="Enter user_id">
-                        </div>
 
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <a class="btn btn-light" th:href="@{/admin}">Cancel</a>
+                        <a class="btn btn-light" th:href="@{/admin/category}">Cancel</a>
                     </form>
                 </div>
             </div>

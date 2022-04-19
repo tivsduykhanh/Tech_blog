@@ -25,6 +25,10 @@ public class Post {
     @CreationTimestamp
     private Date created_at;
 
+    @ManyToOne
+    @JoinColumn(name="category_id", nullable = false)
+    private Category category;
+
     @Column(nullable = false)
     private Integer user_id;
 
@@ -83,6 +87,14 @@ public class Post {
         this.created_at = created_at;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -91,6 +103,7 @@ public class Post {
                 ", content='" + content + '\'' +
                 ", image='" + image + '\'' +
                 ", created_at=" + created_at +
+                ", category=" + category +
                 ", user_id=" + user_id +
                 '}';
     }

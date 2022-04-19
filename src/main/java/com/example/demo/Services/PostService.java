@@ -26,14 +26,16 @@ public class PostService {
         if (result.isPresent()) {
             return result.get();
         }
-        throw new PostNotFoundException("Could not find any users with ID " + id);
+        throw new PostNotFoundException("Could not find any posts with ID " + id);
     }
 
     public void delete(Integer id) throws PostNotFoundException {
         Long count = repo.countById(id);
         if (count == null || count ==0) {
-            throw new PostNotFoundException("Could not find any users with ID " + id);
+            throw new PostNotFoundException("Could not find any posts with ID " + id);
         }
         repo.deleteById(id);
     }
+
+
 }

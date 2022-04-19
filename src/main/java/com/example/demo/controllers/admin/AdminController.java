@@ -1,4 +1,4 @@
-package com.example.demo.controllers;
+package com.example.demo.controllers.admin;
 
 import com.example.demo.Services.PostNotFoundException;
 import com.example.demo.Services.PostService;
@@ -10,7 +10,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,18 +38,6 @@ public class AdminController {
         model.addAttribute("pageTitle", "Add New Post");
         return "layouts/admin/post_form";
     }
-//
-//    @PostMapping("/admin/post/save")
-//    public RedirectView savePost(Post post, RedirectAttributes ra, @RequestParam("fileImage")
-//    MultipartFile multipartFile) throws IOException {
-//        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-//        post.setImage(fileName);
-//        Post savedPost = service.save(post);
-//        String uploadDir = "/post-photos/" + savedPost.getId();
-//        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-//        ra.addFlashAttribute("message","The user has been saved successfully.");
-//        return new RedirectView("/admin", true);
-//    }
 
     @PostMapping("/admin/post/save")
     public String savePost(@ModelAttribute(name = "post") Post post, RedirectAttributes ra,
@@ -82,12 +69,25 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+    @GetMapping("/admin/post/detail/{id}")
+    public String showDetailPost(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
+        try {
+            Post post = service.get(id);
+            model.addAttribute("post", post);
+            model.addAttribute("pageTitle", "Detail Post (ID: " + id + ")");
+            return "/layouts/admin/detailPost_form";
+        } catch (PostNotFoundException e) {
+            ra.addFlashAttribute("message", e.getMessage());
+            return "redirect:/admin";
+        }
+    }
+
     @GetMapping("/admin/post/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
         try {
             Post post = service.get(id);
             model.addAttribute("post", post);
-            model.addAttribute("pageTitle", "Edit User (ID: " + id + ")");
+            model.addAttribute("pageTitle", "Detail Post (ID: " + id + ")");
             return "layouts/admin/post_form";
         } catch (PostNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());

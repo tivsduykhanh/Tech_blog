@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title>Skydash Admin</title>
+  <title>[[${pageTitle}]]</title>
 
   <div th:replace = "fragments/admin/head_admin_fragment :: head_admin"></div>
 </head>
@@ -78,7 +78,7 @@
                           </td>
                           <td>
 <!--                            <div class="template-demo">-->
-                              <a type="button" class="btn btn-info" style="margin-right: 10px">Detail</a>
+                              <a th:href="@{'/admin/post/detail/' + ${post.id}}" type="button" class="btn btn-info" style="margin-right: 10px">Detail</a>
                               <a th:href="@{'/admin/post/edit/' + ${post.id}}" type="button" class="btn btn-warning" style="margin-right: 10px">Edit</a>
                               <a th:href="@{'/admin/post/delete/' + ${post.id}}" type="button" class="btn btn-danger" style="margin-right: 10px">Delete</a>
 <!--                            </div>-->
