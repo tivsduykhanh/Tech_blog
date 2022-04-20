@@ -21,4 +21,10 @@ public class MainController {
 
         return "layouts/index";
     }
+
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "layouts/login";
+    }
+    
 }
