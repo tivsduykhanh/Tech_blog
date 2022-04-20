@@ -562,6 +562,7 @@ div.tab button:hover {
 .masonry-box img,
 .masonry-box {
     width: 100%;
+    height: 100%;
 }
 
 .masonry-box {
@@ -1674,3 +1675,12 @@ hr.invis3 {
     -o-border-radius: 50%;
     border-radius: 50%
 }
+
+
+.img-fluid {
+    max-width: 50%;
+    max-height: 300px;
+    height: auto;
+    width: auto;
+    object-fit: cover;
+  }
