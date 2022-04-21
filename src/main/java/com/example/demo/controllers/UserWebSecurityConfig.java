@@ -20,7 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @EnableWebSecurity
-@Order(2)
+@Order(3)
 public class UserWebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
@@ -51,7 +51,7 @@ public class UserWebSecurityConfig extends WebSecurityConfigurerAdapter {
           .and()
           .logout()
           .logoutUrl("/user_logout")
-          .logoutSuccessUrl("/protectedLinks")
+          .logoutSuccessUrl("/login?logout")
           .deleteCookies("JSESSIONID")
           
           .and()

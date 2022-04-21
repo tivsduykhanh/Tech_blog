@@ -33,15 +33,30 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mr-2">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-rss"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-android"></i></a>
-                    </li>
-                    <li class="nav-item">
+                    <div sec:authorize="isAnonymous()">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                    </div>
+                    <div sec:authorize="isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                Chào, <span sec:authentication="name">default</span>
+                            </a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="fa fa-rss" method="POST" href="/user_logout">
+                                <i class="ti-power-off text-primary"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </div>
+                    
+                    
+                    
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-apple"></i></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </nav>

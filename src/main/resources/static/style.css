@@ -1678,9 +1678,10 @@ hr.invis3 {
 
 
 .img-fluid {
-    max-width: 50%;
+    max-width: 100%;
     max-height: 300px;
     height: auto;
     width: auto;
     object-fit: cover;
   }
+

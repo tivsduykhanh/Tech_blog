@@ -61,7 +61,7 @@ public class AdminWebSecurityConfig extends WebSecurityConfigurerAdapter {
           .and()
           .logout()
           .logoutUrl("/admin_logout")
-          .logoutSuccessUrl("/protectedLinks")
+          .logoutSuccessUrl("/admin/login?logout")
           .deleteCookies("JSESSIONID")
           
           .and()
