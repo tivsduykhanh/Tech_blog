@@ -3,6 +3,7 @@
 <head>
 
     <div th:fragment = "ref">
+        <title>[[${pageTitle}]]</title>
         <meta charset="UTF-8" />
         <!-- template's css -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,8 +17,8 @@
         <meta name="author" content="">
 
         <!-- Site Icons -->
-        <link rel="shortcut icon" href="images/sq.png" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="shortcut icon" th:href="@{/images/sq.png}" type="image/x-icon" />
+        <link rel="apple-touch-icon" th:href="@{/images/apple-touch-icon.png}">
 
         <!-- Design fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
@@ -39,7 +40,7 @@
         <link rel="stylesheet" type="text/css" th:href="@{/css/colors.css}">
 
         <!-- Version Tech CSS for this template -->
-        <link th:href="@{css/version/tech.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/css/version/tech.css}" rel="stylesheet" type="text/css">
         <!-- End of template's css -->
         <!-- Other javascript, css source files -->
         <!-- Core JavaScript -->
@@ -47,6 +48,7 @@
         <script type="text/javascript" th:src="@{/js/tether.min.js}"></script>
         <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
         <script type="text/javascript" th:src="@{/js/custom.js}"></script>
+        <script type="text/javascript" th:src="@{/js/ckeditor/ckeditor.js}"></script>
     </div>
 </head>
 <body>

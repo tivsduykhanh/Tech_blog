@@ -14,65 +14,102 @@
         <!-- partial:partials/_sidebar.html -->
 
         <div th:replace="fragments/admin/navi_admin_fragment :: navi_admin"></div>
-        <div class="col-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description">
-                        Basic form elements
-                    </p>
-                    <form class="forms-sample" th:action="@{/admin/post/save}" method="post" th:object="${post}" enctype="multipart/form-data">
-                        <input type="hidden" th:field="*{id}">
-                        <div class="form-group">
-                            <label>Title</label>
-                            <input th:field="*{title}" type="text" class="form-control" placeholder="Enter Title">
-                        </div>
-                        <div class="form-group">
-                            <label>Content</label>
-                            <textarea th:field="*{content}" class="form-control" placeholder="Enter content"
-                                      rows="4"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Image</label>
-<!--                            <input th:field="*{image}" type="text" class="form-control" placeholder="Enter image">-->
-                            <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg" class="form-control">
-                            <img id="thumbnail" alt="Logo Preview" />
-                        </div>
-<!--                        <div class="form-group">-->
-<!--                            <img id="thumbnail" alt="Logo Preview" />-->
-<!--                        </div>-->
-                        <div class="form-group">
-                            <label>user_id</label>
-                            <input th:field="*{user_id}" type="number" class="form-control"
-                                   placeholder="Enter user_id">
-                        </div>
 
-                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <a class="btn btn-light" th:href="@{/admin}">Cancel</a>
-                    </form>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Basic form elements</h4>
+                            <p class="card-description">
+                                Basic form elements
+                            </p>
+                            <form class="forms-sample" th:action="@{/admin/post/save}" method="post" th:object="${post}"
+                                  enctype="multipart/form-data">
+                                <input type="hidden" th:field="*{id}">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input th:field="*{title}" type="text" class="form-control"
+                                           placeholder="Enter Title">
+                                </div>
+                                <div class="form-group">
+                                    <label>Content</label>
+                                    <textarea th:field="*{content}"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <!--                            <input th:field="*{image}" type="text" class="form-control" placeholder="Enter image">-->
+                                    <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg"
+                                           class="form-control">
+                                </div>
+                                <!--                        <div class="form-group">-->
+                                <!--                            <img id="thumbnail" alt="Logo Preview" />-->
+                                <!--                        </div>-->
+                                <div class="form-group">
+                                    <label>User_id</label>
+                                    <input th:field="*{user_id}" type="number" class="form-control"
+                                           placeholder="Enter user_id">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleSelectGender"></label>
+                                    <select th:field="*{category}" class="form-control" id="exampleSelectGender">
+                                        <option th:each="listCategories : ${listCategories}"
+                                                th:value="${listCategories.id}"
+                                                th:text="${listCategories.title}">
+                                        </option>
+                                    </select>
+                                </div>
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <label>category_id</label>-->
+                                <!--                                    <input th:field="*{category}" type="number" class="form-control"-->
+                                <!--                                           placeholder="Enter category_id">-->
+                                <!--                                </div>-->
+
+                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                <a class="btn btn-light" th:href="@{/admin}">Cancel</a>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    @(document).ready(function() {
-        $('#fileImage').change(function() {
-            showImageThumbnail(this);
-        });
-    });
+<!--<script type="text/javascript">-->
+<!--    @(document).ready(function() {-->
+<!--        $('#fileImage').change(function() {-->
+<!--            showImageThumbnail(this);-->
+<!--        });-->
+<!--    });-->
 
-    function showImageThumbnail(fileInput) {
-        file = fileInput.files[0];
-        reader = new FileReader();
+<!--    function showImageThumbnail(fileInput) {-->
+<!--        file = fileInput.files[0];-->
+<!--        reader = new FileReader();-->
 
-        reader.onload = function(e) {
-            $('#thumbnail').attr('src', e.target.result);
-        };
-        reader.readAsDataURL(file);
-    }
+<!--        reader.onload = function(e) {-->
+<!--            $('#thumbnail').attr('src', e.target.result);-->
+<!--        };-->
+<!--        reader.readAsDataURL(file);-->
+<!--    }-->
 
+<!--</script>-->
+
+<script>
+    CKEDITOR.replace('content');
 </script>
+
+
+<!--<script>-->
+<!--    tinymce.init({-->
+<!--      selector: 'textarea',-->
+<!--      plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',-->
+<!--      toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',-->
+<!--      toolbar_mode: 'floating',-->
+<!--      tinycomments_mode: 'embedded',-->
+<!--      tinycomments_author: 'Author name',-->
+<!--    });-->
+<!--</script>-->
+
 </body>
 </html>
