@@ -24,6 +24,7 @@ public class MainController {
         List<Category> listCategories = service_category.listAll();
         model.addAttribute("listPosts", listPosts);
         model.addAttribute("listCategories", listCategories);
+        model.addAttribute("pageTitle", "Home");
 
         return "layouts/index";
     }

@@ -37,9 +37,9 @@
                       <th>
                         Title
                       </th>
-                      <th>
-                        Content
-                      </th>
+<!--                      <th>-->
+<!--                        Content-->
+<!--                      </th>-->
                       <th>
                         Image
                       </th>
@@ -50,7 +50,7 @@
                         User_id
                       </th>
                       <th>
-                        Action
+                        Category name
                       </th>
                     </tr>
                     </thead>
@@ -63,11 +63,11 @@
                           <td>
                             [[${post.title}]]
                           </td>
+<!--                          <td >-->
+<!--                            <div th:utext="${post.content}"></div>-->
+<!--&lt;!&ndash;                            [[${post.content}]]&ndash;&gt;-->
+<!--                          </td>-->
                           <td>
-                            [[${post.content}]]
-                          </td>
-                          <td>
-<!--                            [[${post.image}]]-->
                             <img th:src="@{${post.getImagePath}}" />
                           </td>
                           <td>
@@ -76,6 +76,9 @@
                           <td>
                             [[${post.user_id}]]
                           </td>
+                            <td>
+                                [[${post.category.title}]]
+                            </td>
                           <td>
 <!--                            <div class="template-demo">-->
                               <a th:href="@{'/admin/post/detail/' + ${post.id}}" type="button" class="btn btn-info" style="margin-right: 10px">Detail</a>
@@ -101,6 +104,16 @@
   <!-- page-body-wrapper ends -->
 </div>
 <!-- container-scroller -->
+
+<!--<script>-->
+<!--  $(function() {-->
+<!--    $('#editor').ckeditor({-->
+<!--        toolbar: 'Full',-->
+<!--        enterMode : CKEDITOR.ENTER_BR,-->
+<!--        shiftEnterMode: CKEDITOR.ENTER_P-->
+<!--    });-->
+<!--});-->
+<!--</script>-->
 
 
 </body>

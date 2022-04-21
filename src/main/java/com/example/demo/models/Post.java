@@ -29,6 +29,8 @@ public class Post {
     @JoinColumn(name="category_id", nullable = false)
     private Category category;
 
+    public Post () {}
+
     @Column(nullable = false)
     private Integer user_id;
 

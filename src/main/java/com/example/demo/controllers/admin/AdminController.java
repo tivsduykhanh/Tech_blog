@@ -1,7 +1,9 @@
 package com.example.demo.controllers.admin;
 
+import com.example.demo.Services.CategoryService;
 import com.example.demo.Services.PostNotFoundException;
 import com.example.demo.Services.PostService;
+import com.example.demo.models.Category;
 import com.example.demo.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,8 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private PostService service;
+    @Autowired
+    private CategoryService service_category;
 
     @GetMapping("/admin")
     public String showPostList(Model model) {
@@ -34,6 +38,8 @@ public class AdminController {
 
     @GetMapping("/admin/post/add")
     public String addPost_form(Model model) {
+        List<Category> listCategories = service_category.listAll();
+        model.addAttribute("listCategories", listCategories);
         model.addAttribute("post", new Post());
         model.addAttribute("pageTitle", "Add New Post");
         return "layouts/admin/post_form";
@@ -86,14 +92,17 @@ public class AdminController {
     public String showEditForm(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
         try {
             Post post = service.get(id);
+            List<Category> listCategories = service_category.listAll();
+            model.addAttribute("listCategories", listCategories);
             model.addAttribute("post", post);
-            model.addAttribute("pageTitle", "Detail Post (ID: " + id + ")");
+            model.addAttribute("pageTitle", "Edit Post (ID: " + id + ")");
             return "layouts/admin/post_form";
         } catch (PostNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
             return "redirect:/admin";
         }
     }
+
 
     @GetMapping("/admin/post/delete/{id}")
     public String deletePost(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {

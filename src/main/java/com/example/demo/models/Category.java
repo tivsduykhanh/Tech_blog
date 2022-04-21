@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
 @Entity
@@ -14,7 +15,11 @@ public class Category {
     private String title;
 
     @OneToMany(mappedBy = "category")
-    private Set<Post> posts;
+    private Collection<Post> posts;
+
+//    public Set<Post> getPost () {
+//        return post ;
+//    }
 
     public Integer getId() {
         return id;
@@ -30,14 +35,6 @@ public class Category {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Set<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
     }
 
     @Override

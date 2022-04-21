@@ -1,5 +1,6 @@
 package com.example.demo.Services;
 
+import com.example.demo.models.Category;
 import com.example.demo.models.Post;
 import com.example.demo.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,15 @@ import java.util.Optional;
 
 @Service
 public class PostService {
-    @Autowired private PostRepository repo;
+    @Autowired
+    private PostRepository repo;
 
     public List<Post> listAll() {
         return (List<Post>) repo.findAll();
+    }
+
+    public List<Post> listByIdCategory(Category category)  {
+        return (List<Post>) repo.findAllById((Iterable<Integer>) category);
     }
 
     public Post save(Post post) {
@@ -38,4 +44,7 @@ public class PostService {
     }
 
 
+    public List<Post> getPostByCategoryId(Integer category_id) {
+        return repo.findByCategoryId(category_id);
+    }
 }
