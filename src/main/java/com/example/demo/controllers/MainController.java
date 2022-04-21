@@ -27,4 +27,8 @@ public class MainController {
         return "layouts/login";
     }
     
+    @GetMapping("/signup")
+    public String showSignupPage() {
+        return "layouts/signup";
+    }
 }
