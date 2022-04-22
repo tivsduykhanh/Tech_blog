@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<div th:replace = "fragments/admin/head_admin_fragment :: head_admin"></div>
@@ -13,7 +13,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../images/logo.svg" alt="logo">
+                <img th:src="@{/admin/images/logo.svg}" alt="logo">
               </div>
 					<div th:if="${param.error}" class="alert alert-danger">    
 						Invalid username and password.
