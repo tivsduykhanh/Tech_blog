@@ -32,7 +32,7 @@ public class AdminController {
     public String showPostList(Model model) {
         List<Post> listPosts = service.listAll();
         model.addAttribute("listPosts", listPosts);
-
+        model.addAttribute("pageTitle", "Post manage");
         return "layouts/admin/index";
     }
 
@@ -94,7 +94,7 @@ public class AdminController {
             Post post = service.get(id);
             List<Category> listCategories = service_category.listAll();
             model.addAttribute("listCategories", listCategories);
-            model.addAttribute("post", post);
+            model.addAttribute("post", new Post());
             model.addAttribute("pageTitle", "Edit Post (ID: " + id + ")");
             return "layouts/admin/post_form";
         } catch (PostNotFoundException e) {

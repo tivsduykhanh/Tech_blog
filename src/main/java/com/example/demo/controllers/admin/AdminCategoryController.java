@@ -19,6 +19,7 @@ public class AdminCategoryController {
     public String showCategoryList(Model model) {
         List<Category> listCategories = service.listAll();
         model.addAttribute("listCategories", listCategories);
+        model.addAttribute("pageTitle", "Category manage");
 
         return "layouts/admin/category";
     }

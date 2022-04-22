@@ -21,38 +21,44 @@
           <div class="col-lg-12 stretch-card">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">DETAIL POST</h4>
+                <h4 class="card-title">DETAIL CONTACT</h4>
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">Image</h4>
+                      <h4 class="card-title">Họ tên</h4>
                       <p>
-                        <img th:src="@{${post.getImagePath}}" />
+                        [[${contact.hoten}]]
+                      </p>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">Số điện thoại</h4>
+                      <p>
+                        [[${contact.sdt}]]
+                      </p>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">Email</h4>
+                      <p>
+                        [[${contact.email}]]
+                      </p>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">Created at</h4>
+                      <p>
+                        [[${contact.created_at}]]
                       </p>
                     </div>
                     <div class="card-body">
                       <h4 class="card-title">Title</h4>
                       <p>
-                        [[${post.title}]]
+                        [[${contact.title}]]
                       </p>
                     </div>
                     <div class="card-body">
                       <h4 class="card-title">Content</h4>
-                      <div th:utext="${post.content}"></div>
-<!--                        [[${post.content}]]-->
+                      <div th:utext="${contact.content}"></div>
                     </div>
-                    <div class="card-body">
-                      <h4 class="card-title">Created at</h4>
-                      <p>
-                        [[${post.created_at}]]
-                      </p>
-                    </div>
-                    <div class="card-body">
-                      <h4 class="card-title">Category name</h4>
-                      <p>
-                        [[${post.category.title}]]
-                      </p>
-                    </div>
+
                   </div>
                 </div>
               </div>

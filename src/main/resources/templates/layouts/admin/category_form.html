@@ -1,7 +1,6 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>[[${pageTitle}]]</title>
     <div th:replace="fragments/admin/head_admin_fragment :: head_admin"></div>
 </head>
 <body>
@@ -14,23 +13,30 @@
         <!-- partial:partials/_sidebar.html -->
 
         <div th:replace="fragments/admin/navi_admin_fragment :: navi_admin"></div>
-        <div class="col-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description">
-                        Basic form elements
-                    </p>
-                    <form class="forms-sample" th:action="@{/admin/category/save}" method="post" th:object="${category}" >
-                        <input type="hidden" th:field="*{id}">
-                        <div class="form-group">
-                            <label>Title</label>
-                            <input th:field="*{title}" type="text" class="form-control" placeholder="Enter Title">
-                        </div>
 
-                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <a class="btn btn-light" th:href="@{/admin/category}">Cancel</a>
-                    </form>
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Basic form elements</h4>
+                            <p class="card-description">
+                                Basic form elements
+                            </p>
+                            <form class="forms-sample" th:action="@{/admin/category/save}" method="post"
+                                  th:object="${category}">
+                                <input type="hidden" th:field="*{id}">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input th:field="*{title}" type="text" class="form-control"
+                                           placeholder="Enter Title">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                <a class="btn btn-light" th:href="@{/admin/category}">Cancel</a>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

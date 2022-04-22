@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <div th:replace="fragments/head_fragment :: ref"></div>
+</head>
+<body>
+<div id="wrapper">
+    <header th:insert="fragments/header_fragment :: header"></header>
+
+    <div class="page-title lb single-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <h2><i class="fa fa-gears bg-orange"></i> Contact </h2>
+                </div><!-- end col -->
+                <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Contact</a></li>
+                    </ol>
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end page-title -->
+
+    <section class="section wb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-wrapper">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <h4>Chúng tôi là ai?</h4>
+                                <p>Tech Blog là một blog cá nhân cho nội dung về Technical, kiến thức về lập trình, chia sẻ kinh nghiệm.</p>
+
+                                <h4>Bạn cần giúp gì?</h4>
+                                <p>Nhập thông tin để chúng tôi biết đang cần gì. </p>
+
+                                <h4>Viết 1 bài báo</h4>
+                                <p>Nếu bạn muốn đề suất cho chúng tôi 1 bài viết do chính bạn chia sẻ, bạn có thể nhập ở đây.</p>
+                            </div>
+
+                            <div class="col-lg-7">
+                                <div th:if="${message}" style="margin-bottom: 30px">
+                                    <h3>[[${message}]]</h3>
+                                </div>
+                                <form class="form-wrapper" th:action="@{/contact/save}" method="post" th:object="${contact}">
+                                    <input type="hidden" th:field="*{id}">
+                                    <input th:field="*{hoten}" type="text" class="form-control" placeholder="Your name">
+                                    <input th:field="*{sdt}" type="text" class="form-control" placeholder="Phone">
+                                    <input th:field="*{email}" type="email" class="form-control" placeholder="Email address">
+                                    <input th:field="*{title}" type="text" class="form-control" placeholder="Title">
+                                    <textarea th:field="*{content}" ></textarea>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 30px">Send <i class="fa fa-envelope-open-o"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div><!-- end page-wrapper -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+
+    <div th:insert="fragments/dmtop :: dmtop"></div>
+    <footer th:insert="fragments/footer_fragment :: footer"></footer>
+</div>
+
+<script>
+    CKEDITOR.replace('content');
+</script>
+
+</body>
+</html>
